@@ -1,0 +1,39 @@
+/* Listar los docentes que dictan clases en el curso A */
+A= σid_curso=0 (Curso⨝Docente)
+π id_docente(A)
+
+/* Listar los alumnos que reciben clases en el curso A */
+A= σ id_curso=0 (Alumno⨝Curso)
+π matricula (A)
+
+/* Listar a todos los docentes del colegio */
+A= σid_usuario=id_docente (Usuario⨝Docente)
+π nombre, apellido (A)
+
+/* Listar a todos los representantes del alumnado */
+π nombre, apellido (Representante)
+
+/* Listar el promedio de notas del curso A */
+γavg(calificacion)->Promedio_notas (σcurso='A' (Nota))
+
+/*Los Numero de celulares de los representantes  que posee un docente DC45215 */
+docente=πidRepresentante σ id_docente="DC45215" Docente
+numeros=πnombre,apellido,telefono docente ⨝ Representante
+numeros
+/*las calificaciones de un alumno matricula 2021Mat  */
+π matricula,nota Alumna
+
+/*Las asignaturas  que el Usuario Fanco Gonzales tiene */
+usuario=σnombre="Fanco" and apellido= "Gonzales" Usuario
+id=πid_usuario usuario
+asignaturas=πcodAsignatura (σid_docente=id Docente)
+Asignaturas
+/*Reporte de asistencia del alumno con matricula Alm202104 */
+alumAsis=σ matricula="Alm202104"Asistencia
+
+/* Muestre la matricula del alummno del correo de un representante */
+A= σ email='oscarfarias@gmail.com'(Representante)
+π matricula(Alumnno ⨝ A)
+
+/*Muestre las fecha justificadas del mes actual */
+π justificada(σ fecha= date('2021-07-*')(Asisitencia))
