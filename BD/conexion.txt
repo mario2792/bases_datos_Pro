@@ -1,0 +1,7 @@
+ssh hostname 78.138.0.55:22
+ssh username: root
+password: Bd12021p1p2p3p4
+Mysql Hostname : 127.0.0.1
+Mysql Server Port 3306 
+Username grupo4P1
+password: grupo4P1
